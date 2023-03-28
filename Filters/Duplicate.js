@@ -4,17 +4,17 @@ class Duplicate {
     // The filter() method filters the data array to return only objects that do not have a duplicate value
     // for the OrderID property.
     async filter(data) {
-        let duplicateData = []
+        let filterOutData = []
         const mySet = new Set()
-        let filterData = data.filter((line) => {
+        let filteredData = data.filter((line) => {
             if(mySet.has(line["OrderID"])) {
-                duplicateData.push(line)
+                filterOutData.push(line)
                 return false
             }
             mySet.add(line["OrderID"])
             return true
         })
-        return [data, filterData, duplicateData]
+        return {data, filteredData, filterOutData}
     }
 }
 

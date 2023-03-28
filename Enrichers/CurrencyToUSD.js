@@ -8,7 +8,7 @@ class CurrencyToUSD {
     enrich(data) {
         return data.map((line) => {
             if (this.exchangeRate[line["Currency"]] == null) {
-                throw "Unsupported exchange rate "
+                throw new Error( "Unsupported exchange rate")
             }
             line['AmountUSD'] = Math.round(Number(line["AmountUSD"]) * Number(this.exchangeRate[line["Currency"]]))
             return line

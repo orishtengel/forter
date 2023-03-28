@@ -9,7 +9,6 @@ class Enrichers {
         this.enrichers = [new CurrencyToUSD(), new ProcessingDate() , new ReasonCatagory(readers, path.join(__dirname,'../Files/reason_codes.csv'))]
     }
 
-    //responsibole check init methed of the enrichers and run them
     async init() {
         await Promise.all(this.enrichers.map( async (enricher) => {
             if(enricher.init) {
@@ -18,7 +17,6 @@ class Enrichers {
         }))
     }
 
-    //check if the format is supported, calls all the enrich method 
     async enrich(data) {
         for(let i = 0; i < this.enrichers.length; i++) {
            data = await this.enrichers[i].enrich(data)

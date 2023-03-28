@@ -13,10 +13,10 @@ class CurrencyAmountFormat {
     format(data) {
         return data.map(line => {
             if(this.currencyAmountFormat[line['MerchantName']] == null) {
-                throw "Merchant unsupported"
+                throw new Error("Merchant unsupported")
             }
             if(this.currencyAmountFormat[line['MerchantName']][line['ProcessorName']] == null) {
-                throw "Processor unsupported"
+                throw new Error("Processor unsupported")
             }
             line['AmountUSD'] = Number(line['Amount']) * this.currencyAmountFormat[line['MerchantName']][line['ProcessorName']]
             return line

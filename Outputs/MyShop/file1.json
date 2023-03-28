@@ -1,18 +1,19 @@
 [
     {
         "OrderID": 2,
-        "ReasonCode": 4526,
-        "Amount": 200,
+        "ReasonCode": 13.1,
+        "Amount": 2,
         "Currency": "EUR",
         "ProcessorName": "AMEX",
-        "DeliveryDate": "2022-11-20",
-        "OrderDate": "2015-11-20",
+        "DeliveryDate": "2021-11-20",
+        "OrderDate": "2017-11-20",
         "MerchantName": "MyShop",
         "Address": "Rothschild 1 Tel Aviv",
-        "AmountUSD": 100,
-        "ProcessingDate": "2015-11-23",
+        "AmountUSD": 1,
+        "ProcessingDate": "2017-11-23",
         "ReasonCatagory": "FRAUD"
-    },
+    }
+] },
     {
         "OrderID": 3,
         "ReasonCode": 4526,

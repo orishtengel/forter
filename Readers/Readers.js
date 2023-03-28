@@ -11,7 +11,7 @@ class Readers {
     async read(filepath) {
         let format = filepath.split(".")[1]
         if(this.readers[format] == null) {
-            throw "unusupported format"
+            throw new Error("unusupported format")
         } 
         return await this.readers[format].read(filepath)
     }

@@ -20,7 +20,7 @@ class ReasonCatagory {
         return data.map((line) => {
             let resp = this.codes.find((code) => code["ReasonCode"] == line["ReasonCode"] && code["Processor"] == this.config[line["ProcessorName"]])
             if(resp == null) {
-                throw `Unsupported reason code ${line["ReasonCode"]} & processor ${line["ProcessorName"]}.`  
+                throw new Error(`Unsupported reason code ${line["ReasonCode"]} & processor ${line["ProcessorName"]}.`)  
             }
             line["ReasonCatagory"] = resp["Reasoncategory"]
             return line

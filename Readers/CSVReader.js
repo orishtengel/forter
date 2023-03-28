@@ -11,11 +11,11 @@ class CSVReader {
         return dataByRows.map((line) => {
             let splitLine = line.split(",").map(x => x.trim())
             let jsonLine = {}
-            params.map((p,i) => {
-                if(Number.isNaN(Number(splitLine[i])))
-                    jsonLine[p] = splitLine[i]
+            params.map((param,index) => {
+                if(Number.isNaN(Number(splitLine[index])))
+                    jsonLine[param] = splitLine[index]
                 else
-                    jsonLine[p] = Number(splitLine[i])  
+                    jsonLine[param] = Number(splitLine[index])  
 
             })
             return jsonLine

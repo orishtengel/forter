@@ -32,17 +32,12 @@ class ConvertionSystem {
         let dataFileFormatted = await this.formaters.format(datafile)
         let dataFileEnriched = await this.enrichers.enrich(dataFileFormatted)
         let dataFileFiltered = await this.filters.filter(dataFileEnriched)
-        
-        let config = args[1].split("/")
-        let filename = config[config.length - 1].split(".")[0]
-        let arrayPath = config.slice(config.indexOf("Inputs"))
-        this.writers.write(dataFileFiltered[1],"json", arrayPath, filename)
-        this.writers.write(dataFileFiltered[2],"json", arrayPath, filename + "_duplicates",)
+        let path = args[1]
+        this.writers.write(dataFileFiltered.filteredData, "json", path)
+        this.writers.write(dataFileFiltered.filterOutData, "json", path + "_duplicates",)
     }
 }
 
-
-//An instance of the ConvertionSystem class is created, and running the procces.
 const convert = new ConvertionSystem()
 convert.init().then(() => {
     convert.convert(args[1])
