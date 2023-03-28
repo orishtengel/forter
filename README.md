@@ -4,7 +4,7 @@ File conversion system is a software system that converts files from one format 
 
 ## Usage
 
-node ConvertionSystem.js <path-to-file>
+node ConvertionSystem.js <-path_to_file->
 
 ## Architeure
 
