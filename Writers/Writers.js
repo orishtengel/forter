@@ -9,14 +9,15 @@ class Writers {
     }
 
     //check if the format is supported, the write() method calls the corresponding writer's write() method 
-    async write(data, format, path) {
+    async write(data, format, path, suffix = "") {
         if(this.writers[format] == null) {
             throw new Error("unusupported format")
         }
         let config = path.split("/")
+        console.log(path)
         let filename = config[config.length - 1].split(".")[0]
         let arrayPath = config.slice(config.indexOf("Inputs"))
-        return await this.writers[format].write(data, arrayPath, filename)
+        return await this.writers[format].write(data, arrayPath, filename + suffix)
     }
 }
 module.exports = Writers

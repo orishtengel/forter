@@ -1,0 +1,5 @@
+{
+    "MyBook" : { "VISA": 0.01, "AMEX": 1 },
+    "MyShop" : { "VISA": 0.001, "AMEX": 1},
+    "MyFlight": { "VISA": 0.01, "AMEX": 1}
+}

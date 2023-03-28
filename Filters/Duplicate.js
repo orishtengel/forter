@@ -14,7 +14,7 @@ class Duplicate {
             mySet.add(line["OrderID"])
             return true
         })
-        return {data, filteredData, filterOutData}
+        return { data, filteredData, filterOutData }
     }
 }
 

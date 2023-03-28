@@ -18,6 +18,8 @@ class JSONWriter {
             }
             catch (err) {}
         }
+
+        console.log(`${fullpath}/${filename}.json`)
         
         //convers the array into JSON and writes it
         var jsonContent = JSON.stringify(data,null,4);

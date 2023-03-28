@@ -10,10 +10,14 @@ class Filters {
     // by convention all filter method will return array of array
     // Data = {originData, filteredData, filterOutData}
     async filter(data) {
-        for(let i = 0; i < this.filters.length; i++) {
-            data = await this.filters[i].filter(data)
+        let filterArray = {originData: data, filteredData: [], filterOutData: []}
+        filterArray = await this.filters[0].filter(data)
+        for(let i = 1; i < this.filters.length; i++) {
+            let _filterArray = await this.filters[i].filter(filterArray["filteredData"])
+            filterArray["filteredData"] = _filterArray["filteredData"]
+            filterArray[filterOutData] = [...filterArray["filterOutData"], ..._filterArray["filterOutData"]]
         }
-        return data
+        return filterArray
     }
 }
 module.exports = Filters

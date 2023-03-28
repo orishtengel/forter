@@ -1,10 +1,12 @@
 const CurrencyAmountFormat = require("./CurrencyAmountFormat");
 const DatesFormat = require("./DateFormat");
+const CurrencyConfig = require("./CurrencyConfig.json")
+
 
 class Formatters {
 
     constructor() {
-        this.formaters = [new CurrencyAmountFormat() , new DatesFormat()]
+        this.formaters = [new CurrencyAmountFormat(CurrencyConfig) , new DatesFormat()]
     }
 
     //check if the format is supported, calls all format method 
